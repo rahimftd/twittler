@@ -6,8 +6,12 @@
   </head>
   <body>
     <script>
-
       $(document).ready(function(){
+        streamTweet();
+        setInterval(streamTweet, 1500);
+      });
+
+      function streamTweet() {
         var $body = $('body');
         $body.html('');
 
@@ -19,8 +23,7 @@
           $tweet.appendTo($body);
           index -= 1;
         }
-
-      });
+      }
 
     </script>
   </body>
