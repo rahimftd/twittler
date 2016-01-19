@@ -13,11 +13,112 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-4">
+      <div class="col-2">
+      </div>
+      <div class="col-3">
+        <div class="userCard">
+          <p class="userName">Rahim Dharssi</p>
+          <P class="userHandle">@rahimFTD</p>
+        </div>
+        <div class="trends">
+          <div class="trendsHeading">
+            Trends
+          </div>
+          <div class="trendContainer">
+            <div class="trendName">
+              #SuperBowl
+            </div>
+            <div class="trendDescription">
+              270K Tweets
+            </div>
+          </div>
+          <div class="trendContainer">
+            <div class="trendName">
+              #NewYearsResolutions
+            </div>
+            <div class="trendDescription">
+              150K Tweets
+            </div>
+          </div>
+          <div class="trendContainer">
+            <div class="trendName">
+              #StarWars
+            </div>
+            <div class="trendDescription">
+              Just started trending
+            </div>
+          </div>
+          <div class="trendContainer">
+            <div class="trendName">
+              #Chipotle
+            </div>
+            <div class="trendDescription">
+              100K Tweets
+            </div>
+          </div>
+          <div class="trendContainer">
+            <div class="trendName">
+              #NewEnglandPatriots
+            </div>
+            <div class="trendDescription">
+              170K Tweets
+            </div>
+          </div>
+          <div class="trendContainer">
+            <div class="trendName">
+              #HackReactor
+            </div>
+            <div class="trendDescription">
+              80K Tweets
+            </div>
+          </div>
+          <div class="trendContainer">
+            <div class="trendName">
+              #WarriorsBasketball
+            </div>
+            <div class="trendDescription">
+              Just started trending
+            </div>
+          </div>
+          <div class="trendContainer">
+            <div class="trendName">
+              #GlennFrey
+            </div>
+            <div class="trendDescription">
+              100K Tweets
+            </div>
+          </div>
+          <div class="trendContainer">
+            <div class="trendName">
+              #ChipKelly
+            </div>
+            <div class="trendDescription">
+              Just started trending
+            </div>
+          </div>
+          <div class="trendContainer">
+            <div class="trendName">
+              #49ers
+            </div>
+            <div class="trendDescription">
+              100K Tweets
+            </div>
+          </div>
+          <div class="trendContainer">
+            <div class="trendName">
+              #MLK
+            </div>
+            <div class="trendDescription">
+              Just started trending
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-1">
       </div>
       <div class="col-4 tweetCol">
       </div>
-      <div class="col-4">
+      <div class="col-2">
       </div>
     </div>
     <script>
@@ -33,11 +134,12 @@
         var index = streams.home.length - 1;
         while(index >= 0){
           var tweet = streams.home[index];
-          var $tweet = $('<div class="tweetContainer"><div class="tweetHeader"><div class="handle"></div><div class="timeStamp"></div></div><div class="tweetText"></div></div>');
+          var $tweet = $('<div class="tweetContainer"><div class="tweetHeader"><div class="handle"></div><div class="timeStamp"></div></div><div class="tweetText"></div><hr></div>');
           $tweetCol.append($tweet);
           var date = getFormatDate(tweet.created_at);
           $tweet.find('.handle').text('@' + tweet.user);
           $tweet.find('.timeStamp').text(date);
+          $tweet.find('.tweetText').text(tweet.message);;
           index -= 1;
         }
       }

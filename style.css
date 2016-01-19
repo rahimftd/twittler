@@ -1,3 +1,10 @@
+hr {
+    border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
 .row {
 	display: flex;
 	width: 100%;
@@ -56,6 +63,51 @@
 
 .headerLogo {
 	width: 2.5%;
+}
+
+.userCard {
+	width: 100%;
+	display: block;
+}
+
+.trendsHeading {
+	color: gray;
+	font-size: 25px;
+	margin-bottom: 10px;
+}
+
+.trendContainer {
+	width: 100%;
+	display: block;
+	margin-bottom: 10px;
+}
+
+.trendName {
+	color: #4682B4;
+	font-size: 15px;
+	font-weight: bold;
+
+}
+
+.trendDescription {
+	color: gray;
+	font-size: 10px;
+	font-style: italic;
+}
+
+.userName {
+	font-size: 40px;
+	font-weight: bold;
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+}
+
+.userHandle {
+	font-size: 25px;
+	color: gray;
+	font-style: italic;
+	padding-top: 0px;
+	margin-top: 0px;
 }
 
 .tweetCol {
