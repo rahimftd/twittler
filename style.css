@@ -60,15 +60,30 @@ hr {
 
 .header {
 	text-align: center;
+	position: fixed;
+	background-color: white;
+	top: 0px;
+	padding-top: 5px;
+}
+
+.contentArea {
+	padding-top: 50px;
 }
 
 .headerLogo {
 	width: 2.5%;
 }
 
+.leftNav {
+	position: relative;
+	top: -40px;
+}
+
 .userCard {
 	width: 100%;
-	display: block;
+}
+
+.trends {
 }
 
 .trendsHeading {
@@ -79,7 +94,6 @@ hr {
 
 .trendContainer {
 	width: 100%;
-	display: block;
 	margin-bottom: 10px;
 }
 
