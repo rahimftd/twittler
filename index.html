@@ -6,26 +6,38 @@
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
+    <div class="row">
+      <div class="col-12 header">
+        <img src="img/bird_logo.png" class="headerLogo"></img>
+        <hr>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-4">
+      </div>
+      <div class="col-4 tweetCol">
+      </div>
+      <div class="col-4">
+      </div>
+    </div>
     <script>
       $(document).ready(function(){
         streamTweet();
-        setInterval(streamTweet, 10000);
+        setInterval(streamTweet, 3000);
       });
 
       function streamTweet() {
-        var $body = $('body');
-        $body.html('');
+        var $tweetCol = $('.tweetCol');
+        $tweetCol.html('');
 
         var index = streams.home.length - 1;
         while(index >= 0){
           var tweet = streams.home[index];
-          var $tweet = $('<div class="tweetContainer"><div class="tweetInfoContainer"><div class="handle"></div><div class="timeStamp"></div></div><div class="tweetText"></div></div>');
-          $body.append($tweet);
+          var $tweet = $('<div class="tweetContainer"><div class="tweetHeader"><div class="handle"></div><div class="timeStamp"></div></div><div class="tweetText"></div></div>');
+          $tweetCol.append($tweet);
           var date = getFormatDate(tweet.created_at);
           $tweet.find('.handle').text('@' + tweet.user);
           $tweet.find('.timeStamp').text(date);
-          $tweet.find('.tweetText').text(tweet.message);
-          $tweet.appendTo($body);
           index -= 1;
         }
       }
