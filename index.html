@@ -155,7 +155,7 @@
         }
           var $tweet = $('<div class="tweetContainer"><div class="tweetHeader"><div class="handle"></div><div class="timeStamp"></div></div><div class="tweetText"></div><hr></div>');
           $tweetCol.append($tweet);
-          var date = getFormatDate(tweet.created_at);
+          var date = timeSince(tweet.created_at);
           $tweet.find('.handle').text('@' + tweet.user);
           $tweet.find('.timeStamp').text(date);
           $tweet.find('.tweetText').text(tweet.message);;
@@ -169,7 +169,7 @@
         var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
         var month = months[date.getMonth()];
 
-        var hours = ['12AM', '1AM', '2AM', '3AM', '4AM', '5AM', '6AM', '7AM', '8AM', '9AM', '10AM', '11AM', '12PM', '1PM', '2PM', '3PM', '4PM', '5PM', '6PM', '7PM', '8PM', '9PM', '10PM', '11AP'];
+        var hours = ['12AM', '1AM', '2AM', '3AM', '4AM', '5AM', '6AM', '7AM', '8AM', '9AM', '10AM', '11AM', '12PM', '1PM', '2PM', '3PM', '4PM', '5PM', '6PM', '7PM', '8PM', '9PM', '10PM', '11PM'];
         var hour = hours[date.getHours()];
 
         return month + " " + date.getDate() + " at " + hour;
@@ -185,6 +185,25 @@
           userFilter = "home";
           streamTweet(userFilter);
         });
+      }
+
+      function timeSince(date) {
+        var timeDiff = Math.abs(new Date() - date) / 1000;
+
+        var secondsSince = Math.ceil(timeDiff % 60);
+        var minsSince = Math.floor(timeDiff / 60) % 60;
+        var hoursSince = Math.floor(Math.floor(timeDiff / 60) / 60) % 24;
+        var daysSince = Math.floor(Math.floor(Math.floor(timeDiff / 60) / 60) / 24);
+
+        if (daysSince !== 0) {
+          return getFormatDate(date);
+        } else if (hoursSince !== 0) {
+          return hoursSince + "h ago";
+        } else if (minsSince !== 0) {
+          return minsSince + "m ago";
+        } else {
+          return secondsSince + "s ago";
+        }
       }
 
     </script>
